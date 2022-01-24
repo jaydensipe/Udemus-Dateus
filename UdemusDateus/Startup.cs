@@ -11,7 +11,7 @@ namespace UdemusDateus
         {
             _config = config;
         }
-        
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -19,13 +19,10 @@ namespace UdemusDateus
 
             services.AddControllers();
             services.AddCors();
-            
+
             services.AddIdentityServices(_config);
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
-            });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" }); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,19 +39,13 @@ namespace UdemusDateus
 
             app.UseRouting();
 
-            app.UseCors(policy =>
-            {
-                policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
-            });
+            app.UseCors(policy => { policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"); });
 
             app.UseAuthentication();
-            
+
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

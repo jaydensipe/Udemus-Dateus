@@ -10,7 +10,8 @@ namespace UdemusDateus.Services;
 public class TokenService : ITokenService
 {
     private readonly SymmetricSecurityKey _key;
-    
+
+
     public TokenService(IConfiguration configuration)
     {
         _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenKey"]));
