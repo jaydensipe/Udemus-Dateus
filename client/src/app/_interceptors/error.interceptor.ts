@@ -27,11 +27,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                 for (const key in error.error.errors) {
                   if (error.error.errors[key]) {
                     modalStateErrors.push(error.error.errors[key]);
+                    this.toastr.error(error.error.errors[key])
                   }
                 }
                 throw modalStateErrors.flat();
-              } else {
-                this.toastr.error(error.error, error.status);
               }
               break;
             case 401:

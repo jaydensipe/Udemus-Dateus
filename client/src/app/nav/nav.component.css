@@ -5,3 +5,11 @@
 .dropdown-toggle, .dropdown-item {
     cursor: pointer;
 }
+
+.nav-title {
+    display: block;
+    font-size: 1.3em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}

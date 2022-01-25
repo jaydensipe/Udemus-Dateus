@@ -1,1 +1,79 @@
-<p>member-detail works!</p>
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/members">Members</a></li>
+        <li class="breadcrumb-item active">{{member.screenName}}</li>
+    </ol>
+    <div class="row" *ngIf="member">
+        <div class="col-4">
+            
+            <div class="card border-info">
+                <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.screenName}}"
+                    class="card-image-top img-thumbnail">
+                <div class="card-body">
+                    <div>
+                        <strong>Location:</strong>
+                        <p>{{member.city}}, {{member.country}}</p>
+                    </div>
+                    <div>
+                        <strong>Age:</strong>
+                        <p>{{member.age}}</p>
+                    </div>
+                    <div>
+                        <strong>Last Active:</strong>
+                        <p>{{member.lastActive}}</p>
+                    </div>
+                    <div>
+                        <strong>Member Since:</strong>
+                        <p>{{member.profileCreated}}</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group d-flex m-2">
+                        <button class="btn btn-primary">Like</button>
+                        <button class="btn btn-success">Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <tabset class="member-tabset" type="pills">
+                <hr>
+                <tab heading="About {{member.screenName}}">
+                    <div class="information">
+                        <h1>About</h1>
+                        <p>{{member.introduction}}</p>
+                        <h4>Looking for</h4>
+                        <p>{{member.lookingFor}}</p>
+                    </div>
+                    <hr>
+                </tab>
+
+
+                <tab heading="Interests">
+                    <div class="information">
+                        <h1>Interests</h1>
+                        <p>{{member.interests}}</p>
+                    </div>
+                    <hr>
+                </tab>
+
+                <tab heading="Photos">
+                    <div class="information">
+                        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"
+                            style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
+                    </div>
+                    <hr>
+                </tab>
+                <tab heading="Messages">
+                    <div class="information">
+                        <h1>Messages will go here</h1>
+                    </div>
+                    <hr>
+                </tab>
+            </tabset>
+        </div>
+
+    </div>
+</div>

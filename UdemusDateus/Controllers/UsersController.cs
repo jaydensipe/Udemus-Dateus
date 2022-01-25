@@ -9,7 +9,6 @@ using UdemusDateus.Interfaces;
 
 namespace UdemusDateus.Controllers;
 
-[Authorize]
 public class UsersController : BaseApiController
 {
     private readonly IUserRepository _userRepository;
