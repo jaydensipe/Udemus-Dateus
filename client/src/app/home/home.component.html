@@ -1,22 +1,40 @@
 <div class="container mt-5">
     <div *ngIf="!showRegister" style="text-align: center;">
-        <h1>Welcome to home page!</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida tortor nulla, ac
+        <p class="title">Welcome traveler!</p>
+        <p class="lead mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida tortor nulla,
+            ac
             blandit massa pharetra ac. Nulla eu arcu est. Nullam hendrerit nec odio sed semper. Aliquam eleifend lacus
             ac posuere feugiat. In tempus dolor erat, ac eleifend purus suscipit sed. In sit amet imperdiet lorem. Ut
             tempus quam id enim convallis mollis. Proin venenatis ultricies lectus ut laoreet. Aenean orci nunc,
             hendrerit in lacus vitae, molestie mattis felis. Vivamus sed vehicula purus. Proin mollis condimentum nisi,
-            eget pretium orci faucibus in. Vivamus nec lacus porta, elementum tellus eu, pulvinar purus.</p>
+            eget pretium orci faucibus in. Vivamus nec lacus porta, elementum tellus eu, pulvinar purus.
+
+            <br><br>
+
+            Eu sed mollis denique, eam in ridens labitur admodum. Sed tollit nemore cu, tation adolescens quo te. Et quo
+            aeterno albucius mnesarchum. Nam utamur sanctus no, ex duo sint partiendo, debet graecis definiebas vis in.
+            Virtute veritus mei an.
+        </p>
+        <figure>
+            <blockquote class="blockquote">
+                <p class="mb-0">And there it is, friends! The ugly truth! We are the children of man! Talos is the true
+                    god of man! Ascended from flesh, to rule the realm of spirit!</p>
+
+            </blockquote>
+            <figcaption class="blockquote-footer">
+                Heimskr <cite title="Source Title">from Wind District in Whiterun</cite>
+            </figcaption>
+        </figure>
         <div class="text-center">
-            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
-            <button class="btn btn-info btn-lg">Learn more</button>
+            <button (click)="registerToggle()" class="btn btn-secondary btn-lg mr-2">Register</button>
+            <button class="btn btn-outline-info btn-lg">Learn more</button>
         </div>
     </div>
 
     <div *ngIf="showRegister" class="container">
         <div class="row justify-content-center">
             <div class="col-4">
-                <app-register (cancelRegister)="cancelRegisterMode($event)" ></app-register>
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>
         </div>
     </div>

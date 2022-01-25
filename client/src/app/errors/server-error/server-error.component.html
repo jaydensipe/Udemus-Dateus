@@ -1,0 +1,16 @@
+<div class="container">
+    <div style="text-align: center;">
+        <img src="../../../assets/images/wizard-error.png">
+        <p class="title text-danger">500 - Internal Server Error!</p>
+        <p class="lead">By the nine divines! The server had a hex placed on it and failed, but feel free to click the
+            scroll below to take you back on thy path.</p>
+        <button class="btn btn-outline-danger btn-lg" routerLink="/">Back to home</button>
+    </div>
+
+</div>
+
+<h4>Internal server errror!</h4>
+<ng-container *ngIf="error">
+    <h5 class="text-danger">Error: {{error.message}}</h5>
+    <code class="mt-5" style="background-color: whitesmoke;">{{error.details}}</code>
+</ng-container>

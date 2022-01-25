@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Udemus Dateus 🧙</a>
+    <a class="navbar-brand nav-title mr-2" routerLink="/">Udemus Dateus 🧙</a>
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav nav-pills mr-auto">
       <ng-container *ngIf="accountService.currentUser$ | async">
         <li class="nav-item">
           <a class="nav-link" routerLink="/members" routerLinkActive="active">Wizard Matches</a>
@@ -34,7 +34,7 @@
       <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password"
         placeholder="Password">
 
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
     </form>
   </div>
 </nav>
