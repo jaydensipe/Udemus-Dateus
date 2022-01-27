@@ -23,6 +23,16 @@ public class UserRepository : IUserRepository
         _context.Entry(user).State = EntityState.Modified;
     }
 
+    public async Task<IEnumerable<AppUser>> GetUsersAsync()
+    {
+        return await _context.Users.Include(p => p.Photos).ToListAsync();
+    }
+
+    public async Task<AppUser> GetUserByUserNameAsync(string userName)
+    {
+        return await _context.Users.Include(p => p.Photos).SingleOrDefaultAsync(user => user.UserName == userName);
+    }
+
     public async Task<bool> SaveAllAsync()
     {
         return await _context.SaveChangesAsync() > 0;
