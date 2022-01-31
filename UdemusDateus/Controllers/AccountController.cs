@@ -45,8 +45,8 @@ public class AccountController : BaseApiController
         {
             Username = user.UserName,
             Token = _tokenService.CreateToken(user),
-            ScreenName = user.ScreenName
-            
+            ScreenName = user.ScreenName,
+            Gender = user.Gender
         };
     }
 
@@ -68,7 +68,8 @@ public class AccountController : BaseApiController
             Username = user.UserName,
             Token = _tokenService.CreateToken(user),
             PhotoUrl = user.Photos.FirstOrDefault(photo => photo.IsMain)?.Url,
-            ScreenName = user.ScreenName
+            ScreenName = user.ScreenName,
+            Gender = user.Gender
         };
     }
 

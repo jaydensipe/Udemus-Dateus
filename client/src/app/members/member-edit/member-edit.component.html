@@ -11,7 +11,7 @@
         <div class="col-4">
 
             <div class="card border-info">
-                <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.screenName}}"
+                <img src="{{member.photoUrl || '../../../../../assets/images/user.png'}}" alt="{{member.screenName}}"
                     class="card-image-top img-thumbnail">
                 <div class="card-body">
                     <div>
@@ -24,15 +24,16 @@
                     </div>
                     <div>
                         <strong>Last Active:</strong>
-                        <p>{{member.lastActive}}</p>
+                        <p>{{member.lastActive | timeago}}</p>
                     </div>
                     <div>
                         <strong>Member Since:</strong>
-                        <p>{{member.profileCreated}}</p>
+                        <p>{{member.profileCreated | date: 'longDate'}}</p>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-success btn-block">Save Changes</button>
+                    <button [disabled]="!editForm.dirty" form="editForm" type="submit"
+                        class="btn btn-success btn-block">Save Changes</button>
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ export class DateInputComponent implements ControlValueAccessor {
       containerClass: 'theme-red',
       dateInputFormat: "DD MMMM YYYY"
     }
-   }
+  }
   writeValue(obj: any): void {
   }
   registerOnChange(fn: any): void {

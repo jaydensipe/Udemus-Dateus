@@ -23,13 +23,13 @@ export class PhotoEditorComponent implements OnInit {
 
   constructor(private accountService: AccountService, private memberService: MembersService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user)
-   }
+  }
 
   ngOnInit(): void {
     this.initializeUploader();
   }
 
-  fileOverBase(e: any) { 
+  fileOverBase(e: any) {
     this.hasBaseDropzoneOver = e;
   }
 
