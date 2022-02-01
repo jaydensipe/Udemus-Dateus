@@ -15,6 +15,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<LogUserActivity>();
         services.AddScoped<IPhotoService, PhotoService>();
+        services.AddScoped<ILikesRepository, LikesRepository>();
         services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
         services.AddDbContext<DataContext>(options => { options.UseSqlite(configuration.GetConnectionString("DefaultConnection")); });
