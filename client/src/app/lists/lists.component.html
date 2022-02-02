@@ -1,13 +1,9 @@
-<div class="text-center mt-3">
-    <h2>{{predicate === 'liked' ? 'Displaying: Members I like' : 'Displaying: Members who like me'}}</h2>
-</div>
-
 <div class="container mt-3">
     <div class="row">
         <div class="btn-group" name="predicate">
-            <button class="btn-btn-primary" btnRadio="liked" [(ngModel)]="predicate" (click)="loadLikes()">Members I
+            <button class="btn btn-primary" btnRadio="liked" [(ngModel)]="predicate" (click)="loadLikes()"><i class="fa fa-users mr-2"></i>Members I
                 like</button>
-            <button class="btn-btn-primary" btnRadio="likedBy" [(ngModel)]="predicate" (click)="loadLikes()">Members who
+            <button class="btn btn-primary" btnRadio="likedBy" [(ngModel)]="predicate" (click)="loadLikes()"><i class="fa fa-user mr-2"></i>Members who
                 like me</button>
 
         </div>

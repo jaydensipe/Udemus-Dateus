@@ -1,43 +1,65 @@
-<form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()" autocomplete="off" autocapitalize="off">
+<form [formGroup]="registerForm"
+      (ngSubmit)="registerForm.valid && register()"
+      autocomplete="off"
+      autocapitalize="off">
     <h2 class="text-center text-primary">Sign up</h2>
     <hr>
 
     <div class="form-group">
-        <label style="margin-right: 10px;" class="control-label">Your gender: </label>
+        <label style="margin-right: 10px;"
+               class="control-label">Your gender: </label>
 
         <div class="form-check">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" formControlName="gender" value="male">
+                <input type="radio"
+                       class="form-check-input"
+                       formControlName="gender"
+                       value="male">
                 Male
             </label>
         </div>
 
         <div class="form-check">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" formControlName="gender" value="female">
+                <input type="radio"
+                       class="form-check-input"
+                       formControlName="gender"
+                       value="female">
                 Female
             </label>
         </div>
 
     </div>
 
-    <app-text-input [formControl]="$any(registerForm.controls) ['username']" [label]="'Username'"></app-text-input>
-    <app-text-input [formControl]="$any(registerForm.controls) ['screenName']" [label]="'Screen Name'"></app-text-input>
-    <app-date-input [formControl]="$any(registerForm.controls) ['dateOfBirth']" [label]="'Date of Birth'"
-        [maxDate]="maxDate">
+    <app-text-input [formControl]="$any(registerForm.controls) ['username']"
+                    [label]="'Username'"></app-text-input>
+    <app-text-input [formControl]="$any(registerForm.controls) ['screenName']"
+                    [label]="'Screen Name'"></app-text-input>
+    <app-date-input [formControl]="$any(registerForm.controls) ['dateOfBirth']"
+                    [label]="'Date of Birth'"
+                    [maxDate]="maxDate">
     </app-date-input>
-    <app-text-input [formControl]="$any(registerForm.controls) ['city']" [label]="'City'"></app-text-input>
-    <app-text-input [formControl]="$any(registerForm.controls) ['country']" [label]="'Country'"></app-text-input>
+    <app-text-input [formControl]="$any(registerForm.controls) ['city']"
+                    [label]="'City'"></app-text-input>
+    <app-text-input [formControl]="$any(registerForm.controls) ['country']"
+                    [label]="'Country'"></app-text-input>
 
-    <app-text-input [formControl]="$any(registerForm.controls) ['password']" [label]="'Password'" [type]="'password'">
+    <app-text-input [formControl]="$any(registerForm.controls) ['password']"
+                    [label]="'Password'"
+                    [type]="'password'">
     </app-text-input>
-    <app-text-input [formControl]="$any(registerForm.controls) ['confirmPassword']" [label]="'Confirm Password'"
-        [type]="'password'"></app-text-input>
+    <app-text-input [formControl]="$any(registerForm.controls) ['confirmPassword']"
+                    [label]="'Confirm Password'"
+                    [type]="'password'"></app-text-input>
 
 
     <div class="form-group text-center">
-        <button [disabled]="!registerForm.valid" class="btn btn-success mr-2" type="submit">Register</button>
-        <button class="btn btn-outline-dark mr-2" (click)="cancel()" type="button">Cancel</button>
+        <button [disabled]="!registerForm.valid"
+                class="btn btn-success mr-2"
+                type="submit">Register</button>
+        <button class="btn btn-outline-dark mr-2"
+                (click)="cancel()"
+                type="button">Cancel</button>
 
     </div>
 </form>
