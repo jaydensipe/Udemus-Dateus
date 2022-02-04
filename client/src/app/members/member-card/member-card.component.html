@@ -7,13 +7,18 @@
                         class="fa fa-user"></i></button></li>
             <li class="list-inline-item"><button (click)="addLike(member)" class="btn btn-danger"><i
                         class="fa fa-heart"></i></button></li>
-            <li class="list-inline-item"><button routerLink="/members/{{member.userName}}" [queryParams]="{tab: 3}" class="btn btn-success"><i
-                        class="fa fa-envelope"></i></button></li>
+            <li class="list-inline-item"><button routerLink="/members/{{member.userName}}" [queryParams]="{tab: 3}"
+                    class="btn btn-success"><i class="fa fa-envelope"></i></button></li>
         </ul>
     </div>
 
     <div class="card-body p-1">
-        <p class="card-title text-center mb-1"><i class="fa fa-user mr-2"></i>{{member.screenName}}, {{member.age}}</p>
+        <p class="card-title text-center mb-1">
+            <span [class.is-online]="(presence.onlineUsers$ | async).includes(member.userName)">
+                <i class="fa fa-user mr-2"></i>
+            </span>
+            {{member.screenName}}, {{member.age}}
+        </p>
         <p class="card-text text-muted text-center"><i class="fa fa-map-marker mr-2"></i>{{member.city}}</p>
     </div>
 </div>

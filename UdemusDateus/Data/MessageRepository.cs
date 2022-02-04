@@ -1,5 +1,6 @@
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using CloudinaryDotNet.Actions;
 using Microsoft.EntityFrameworkCore;
 using UdemusDateus.DTOs;
 using UdemusDateus.Entities;
@@ -17,6 +18,33 @@ public class MessageRepository : IMessageRepository
     {
         _dataContext = dataContext;
         _mapper = mapper;
+    }
+
+    public void AddGroup(Group group)
+    {
+        _dataContext.Groups.Add(group);
+    }
+
+    public void RemoveConnection(Connection connection)
+    {
+        _dataContext.Connections.Remove(connection);
+    }
+
+    public async Task<Connection> GetConnection(string connectionId)
+    {
+        return await _dataContext.Connections.FindAsync(connectionId);
+    }
+
+    public async Task<Group> GetMessageGroup(string groupName)
+    {
+        return await _dataContext.Groups.Include(c => c.Connections).FirstOrDefaultAsync(g => g.Name == groupName);
+    }
+
+    public async Task<Group> GetGroupForConnection(string connectionId)
+    {
+        return await _dataContext.Groups
+            .Include(c => c.Connections)
+            .Where(c => c.Connections.Any(x => x.ConnectionId == connectionId)).FirstOrDefaultAsync();
     }
 
     public void AddMessage(Message message)
@@ -66,7 +94,7 @@ public class MessageRepository : IMessageRepository
         {
             foreach (var message in unreadMessages)
             {
-                message.DateRead = DateTime.Now;
+                message.DateRead = DateTime.UtcNow;
             }
 
             await _dataContext.SaveChangesAsync();

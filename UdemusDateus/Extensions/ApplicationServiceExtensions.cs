@@ -3,6 +3,7 @@ using UdemusDateus.Data;
 using UdemusDateus.Helpers;
 using UdemusDateus.Interfaces;
 using UdemusDateus.Services;
+using UdemusDateus.SignalR;
 
 namespace UdemusDateus.Extensions;
 
@@ -10,6 +11,7 @@ public static class ApplicationServiceExtensions
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddSingleton<PresenceTracker>();
         services.Configure<CloudinarySettings>(configuration.GetSection("CloudinarySettings"));
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();

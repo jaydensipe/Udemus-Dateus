@@ -1,6 +1,8 @@
 using Microsoft.OpenApi.Models;
 using UdemusDateus.Extensions;
 using UdemusDateus.Middleware;
+using UdemusDateus.Services;
+using UdemusDateus.SignalR;
 
 namespace UdemusDateus
 {
@@ -22,6 +24,8 @@ namespace UdemusDateus
             services.AddCors();
 
             services.AddIdentityServices(_config);
+
+            services.AddSignalR(o => { o.EnableDetailedErrors = true; });
 
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" }); });
         }
@@ -47,7 +51,12 @@ namespace UdemusDateus
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHub<PrescenceHub>("hubs/presence");
+                endpoints.MapHub<MessageHub>("hubs/message");
+            });
         }
     }
 }
