@@ -19,7 +19,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
-        services.AddDbContext<DataContext>(options => { options.UseSqlite(configuration.GetConnectionString("DefaultConnection")); });
+        services.AddDbContext<DataContext>(options => { options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")); });
 
         return services;
     }

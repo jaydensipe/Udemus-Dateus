@@ -1,10 +1,5 @@
-using System.Security.Claims;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using UdemusDateus.Data;
-using UdemusDateus.Data.Migrations;
 using UdemusDateus.DTOs;
 using UdemusDateus.Entities;
 using UdemusDateus.Extensions;
