@@ -21,6 +21,11 @@ public class UsersController : BaseApiController
         _photoService = photoService;
     }
 
+    /// <summary>
+    /// Returns all users that conform to passed in params.
+    /// </summary>
+    /// <param name="userParams"></param>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
     {
@@ -40,12 +45,23 @@ public class UsersController : BaseApiController
         return Ok(users);
     }
 
+
+    /// <summary>
+    /// Gets specified user from username.
+    /// </summary>
+    /// <param name="userName">Username of user to return</param>
+    /// <returns></returns>
     [HttpGet("{userName}", Name = "GetUser")]
     public async Task<ActionResult<MemberDto>> GetUser(string userName)
     {
         return await _unitOfWork.UserRepository.GetMemberByUserNameAsync(userName);
     }
 
+    /// <summary>
+    /// Updates current user with passed in information.
+    /// </summary>
+    /// <param name="memberUpdateDto"></param>
+    /// <returns></returns>
     [HttpPut]
     public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
     {
@@ -59,6 +75,11 @@ public class UsersController : BaseApiController
         return BadRequest("Failed to update user!");
     }
 
+    /// <summary>
+    /// Adds photo to user.
+    /// </summary>
+    /// <param name="file"></param>
+    /// <returns></returns>
     [HttpPost("add-photo")]
     public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
     {
@@ -89,6 +110,11 @@ public class UsersController : BaseApiController
         return BadRequest("Problem adding photo!");
     }
 
+    /// <summary>
+    /// Sets the main photo used for current user.
+    /// </summary>
+    /// <param name="photoId">Id of photo to be main photo</param>
+    /// <returns></returns>
     [HttpPut("set-main-photo/{photoId}")]
     public async Task<ActionResult> SetMainPhoto(int photoId)
     {
@@ -108,6 +134,11 @@ public class UsersController : BaseApiController
         return BadRequest("Failed to set main photo!");
     }
 
+    /// <summary>
+    /// Deletes photo.
+    /// </summary>
+    /// <param name="photoId">Id of photo to be deleted</param>
+    /// <returns></returns>
     [HttpDelete("delete-photo/{photoId}")]
     public async Task<ActionResult> DeletePhoto(int photoId)
     {

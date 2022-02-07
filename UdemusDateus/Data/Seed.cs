@@ -8,6 +8,11 @@ namespace UdemusDateus.Data;
 
 public class Seed
 {
+    /// <summary>
+    /// Seeds users into the database.
+    /// </summary>
+    /// <param name="userManager"></param>
+    /// <param name="roleManager"></param>
     public static async Task SeedUsers(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
     {
         if (await userManager.Users.AnyAsync()) return;
@@ -18,9 +23,9 @@ public class Seed
 
         var roles = new List<AppRole>
         {
-            new AppRole{Name = "Member"},
-            new AppRole{Name = "Admin"},
-            new AppRole{Name = "Moderator"}
+            new() { Name = "Member" },
+            new() { Name = "Admin" },
+            new() { Name = "Moderator" }
         };
 
         foreach (var role in roles)
@@ -41,6 +46,6 @@ public class Seed
         };
 
         await userManager.CreateAsync(admin, "Pa$$w0rd");
-        await userManager.AddToRolesAsync(admin, new []{"Admin", "Moderator"});
+        await userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" });
     }
 }

@@ -59,7 +59,7 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int, IdentityUser
             .HasOne(user => user.Sender)
             .WithMany(m => m.MessagesSent)
             .OnDelete(DeleteBehavior.Restrict);
-        
+
         modelBuilder.ApplyUtcDateTimeConverter();
     }
 }
@@ -67,6 +67,7 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int, IdentityUser
 public static class UtcDateAnnotation
 {
     private const String IsUtcAnnotation = "IsUtc";
+
     private static readonly ValueConverter<DateTime, DateTime> UtcConverter =
         new ValueConverter<DateTime, DateTime>(v => v, v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
 

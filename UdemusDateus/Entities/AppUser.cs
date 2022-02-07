@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 namespace UdemusDateus.Entities;
 
 public class AppUser : IdentityUser<int>
-{ 
+{
     public DateTime DateOfBirth { get; set; }
     public string ScreenName { get; set; }
 
@@ -28,7 +28,6 @@ public class AppUser : IdentityUser<int>
 
     public ICollection<Message> MessagesSent { get; set; }
     public ICollection<Message> MessagesReceived { get; set; }
-    
-    public ICollection<AppUserRole> UserRoles { get; set; }
 
+    public ICollection<AppUserRole> UserRoles { get; set; }
 }

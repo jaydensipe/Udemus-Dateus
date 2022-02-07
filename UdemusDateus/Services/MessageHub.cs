@@ -18,7 +18,7 @@ public class MessageHub : Hub
     private readonly IHubContext<PrescenceHub> _hubContext;
     private readonly PresenceTracker _presenceTracker;
 
-    public MessageHub(IUnitOfWork unitOfWork, IMapper mapper, IHubContext<PrescenceHub> hubContext, 
+    public MessageHub(IUnitOfWork unitOfWork, IMapper mapper, IHubContext<PrescenceHub> hubContext,
         PresenceTracker presenceTracker)
     {
         _unitOfWork = unitOfWork;
@@ -26,9 +26,7 @@ public class MessageHub : Hub
         _hubContext = hubContext;
         _presenceTracker = presenceTracker;
     }
-
-
-
+    
     public override async Task OnConnectedAsync()
     {
         var httpContext = Context.GetHttpContext();
@@ -63,7 +61,7 @@ public class MessageHub : Hub
         var sender = await _unitOfWork.UserRepository.GetUserByUserNameAsync(username);
         var recipient = await _unitOfWork.UserRepository.GetUserByUserNameAsync(createMessageDto.RecipientUsername);
 
-        if (recipient == null) throw new HubException("User not found");
+        if (recipient == null) throw new HubException("User not found!");
 
         var message = new Message
         {

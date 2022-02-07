@@ -21,6 +21,11 @@ public class MessagesController : BaseApiController
         _mapper = mapper;
     }
 
+    /// <summary>
+    /// Creates a specified message to send to a user.
+    /// </summary>
+    /// <param name="createMessageDto"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<ActionResult<MessageDto>> CreateMessage(CreateMessageDto createMessageDto)
     {
@@ -49,6 +54,11 @@ public class MessagesController : BaseApiController
         return BadRequest("Failed to send message!");
     }
 
+    /// <summary>
+    /// Gets all messages related to a user.
+    /// </summary>
+    /// <param name="messageParams"></param>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessagesForUser([FromQuery] MessageParams messageParams)
     {
@@ -60,7 +70,12 @@ public class MessagesController : BaseApiController
 
         return messages;
     }
-    
+
+    /// <summary>
+    /// Deletes a message.
+    /// </summary>
+    /// <param name="id">Id of message to delete</param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteMessage(int id)
     {

@@ -1,10 +1,7 @@
-using System.Security.Cryptography;
-using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using UdemusDateus.Data;
 using UdemusDateus.DTOs;
 using UdemusDateus.Entities;
 using UdemusDateus.Interfaces;

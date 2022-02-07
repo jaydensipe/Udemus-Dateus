@@ -18,6 +18,11 @@ public class LikesController : BaseApiController
         _unitOfWork = unitOfWork;
     }
 
+    /// <summary>
+    /// Causes current user to like passed in user.
+    /// </summary>
+    /// <param name="username">The username of the user to like</param>
+    /// <returns></returns>
     [HttpPost("{username}")]
     public async Task<ActionResult> AddLike(string username)
     {
@@ -37,7 +42,7 @@ public class LikesController : BaseApiController
             SourceUserId = sourceUserId,
             LikedUserId = likedUser.Id
         };
-        
+
         sourceUser.LikedUsers.Add(userLike);
 
         if (await _unitOfWork.Complete()) return Ok();
@@ -49,12 +54,11 @@ public class LikesController : BaseApiController
     public async Task<ActionResult<IEnumerable<LikeDto>>> GetUserLikes([FromQuery] LikesParams likesParams)
     {
         likesParams.UserId = User.GetUserId();
-        
+
         var users = await _unitOfWork.LikesRepository.GetUserLikes(likesParams);
-        
+
         Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
 
         return Ok(users);
     }
-    
 }

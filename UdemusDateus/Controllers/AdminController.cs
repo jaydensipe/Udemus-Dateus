@@ -15,6 +15,9 @@ public class AdminController : BaseApiController
         _userManager = userManager;
     }
 
+    /// <summary>
+    /// Returns a List of users that includes their roles.
+    /// </summary>
     [Authorize(Policy = "RequireAdminRole")]
     [HttpGet("users-with-roles")]
     public async Task<ActionResult> GetUsersWithRoles()
@@ -34,6 +37,13 @@ public class AdminController : BaseApiController
         return Ok(users);
     }
 
+    /// <summary>
+    /// Call to allow an admin to edit the roles of particular user.
+    /// </summary>
+    /// <param name="username">Username of the user to edit</param>
+    /// <param name="roles">Roles to change</param>
+    /// <returns></returns>
+    [Authorize(Policy = "RequireAdminRole")]
     [HttpPost("edit-roles/{username}")]
     public async Task<ActionResult> EditRoles(string username, [FromQuery] string roles)
     {
@@ -52,12 +62,5 @@ public class AdminController : BaseApiController
         if (!result.Succeeded) return BadRequest("Failed to remove from roles");
 
         return Ok(await _userManager.GetRolesAsync(user));
-    }
-
-    [Authorize(Policy = "ModeratePhotoRole")]
-    [HttpGet("photos-to-moderate")]
-    public ActionResult GetPhotosForModeration()
-    {
-        return Ok("Admins or moderators can see this!");
     }
 }
