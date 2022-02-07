@@ -33,6 +33,7 @@ import { UserManagementComponent } from './admin/user-management/user-management
 import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
 import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
 import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.c
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    PopoverModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
