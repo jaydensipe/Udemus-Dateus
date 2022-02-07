@@ -3,7 +3,7 @@
 <p align="center">
     <img style="height: 100px" src="https://assets.wprock.fr/emoji/joypixels/512/1f9d9-2642.png" alt="Logo">
   <p align="center">
-     A fully functioning (Wizard) Dating web application created with help from a <a href="https://www.udemy.com/course/build-an-app-with-aspnet-core-and-angular-from-scratch">Udemy course</a>, using ASP.NET Core and Angular hosted on Microsoft Azure.
+     A fully functional (Wizard) Dating web application created with help from a <a href="https://www.udemy.com/course/build-an-app-with-aspnet-core-and-angular-from-scratch">Udemy course</a>, using ASP.NET Core and Angular hosted on Microsoft Azure.
     <br />
   </p>
 </p>
