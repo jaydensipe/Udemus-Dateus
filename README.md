@@ -48,6 +48,7 @@ Members are also able to like other members, upload photos for their profile, ch
 * ASP.NET Identity
 * AutoMapper
 * MSSql (Database)
+* Bootstrap
 
 <!-- CONTACT -->
 ## Contact
