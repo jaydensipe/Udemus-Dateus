@@ -28,7 +28,7 @@
 ## About The Project
 
 **Link (ONLY FOR DEMONSTRATIONAL PURPOSES, NOT FOR ACTUAL USE):**<br>
-TEST LINK
+https://udemusdateus.azurewebsites.net/
 
 This is a fully functioning dating web application created with help from a Udemy course (above), built from scratch. 
 It utilizes ASP.NET Core for the backend and Angular for the frontend. Users are able to register, login, and edit their profiles. 
