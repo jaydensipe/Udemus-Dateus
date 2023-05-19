@@ -27,12 +27,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-**Link (ONLY FOR DEMONSTRATIONAL PURPOSES, NOT FOR ACTUAL USE):**<br>
-https://udemusdateus.azurewebsites.net/
-
 This is a fully functioning dating web application created with help from a Udemy course (above), built from scratch. 
 It utilizes ASP.NET Core for the backend and Angular for the frontend. Users are able to register, login, and edit their profiles. 
-Members are also able to like other members, upload photos for their profile, chat with other members, etc. Hosted on Microsoft's Azure Cloud Service.
+Members are also able to like other members, upload photos for their profile, chat with other members, etc. Hosted on Microsoft's Azure Cloud Service (has since expired).
 
 ### Development Tools
 * C#
