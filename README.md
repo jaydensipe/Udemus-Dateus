@@ -52,5 +52,5 @@ Members are also able to like other members, upload photos for their profile, ch
 
 Website/Portfolio - [https://jaydensipe.github.io/](https://jaydensipe.github.io/)
 
-Project Link: [https://github.com/jaydensipe/UdemusDateus](https://github.com/jaydensipe/UdemusDateus)
+Project Link: [https://github.com/jaydensipe/UdemusDateus](https://github.com/jaydensipe/Udemus-Dateus)
 
